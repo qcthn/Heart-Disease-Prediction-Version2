@@ -67,6 +67,10 @@ Các mô hình học máy sau được huấn luyện và đánh giá cho việc
 # Giao diện Hệ Thống Dự Đoán Bệnh Tim (GUI)
 
 Đây là một ứng dụng web để dự đoán nguy cơ mắc bệnh tim dựa trên các chỉ số lâm sàng khác nhau. Ứng dụng sử dụng một mô hình học máy được huấn luyện trên dữ liệu sức khỏe liên quan.
+![127 0 0 1_5000_(desktop)](https://github.com/qcthn/Heart-Disease-Prediction-Version2/assets/89240476/7b1a0054-5fab-4cfc-b143-76c2b985e46d)
+
+![127 0 0 1_5000_predict(desktop)](https://github.com/qcthn/Heart-Disease-Prediction-Version2/assets/89240476/93d09a8b-6341-4dc8-8c43-f4b4a237ab94)
+
 
 ## Cài Đặt
 
