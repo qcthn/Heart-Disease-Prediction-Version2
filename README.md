@@ -63,9 +63,8 @@ Các mô hình học máy sau được huấn luyện và đánh giá cho việc
 
 Độ chính xác và hiệu suất của mỗi mô hình được đánh giá bằng các chỉ số như điểm chính xác, ma trận nhầm lẫn, độ chính xác, độ nhớ, và F1-score.
 
-## Giao diện người dùng đồ họa (GUI)
 
-# Hệ Thống Dự Đoán Bệnh Tim
+# Giao diện Hệ Thống Dự Đoán Bệnh Tim (GUI)
 
 Đây là một ứng dụng web để dự đoán nguy cơ mắc bệnh tim dựa trên các chỉ số lâm sàng khác nhau. Ứng dụng sử dụng một mô hình học máy được huấn luyện trên dữ liệu sức khỏe liên quan.
 
