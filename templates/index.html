@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <div
+      class="container d-flex justify-content-center align-items-center min-vh-100"
+    >
+      <!-- Login Container -->
+      <div class="row border rounded-5 p-3 bg-white shadow box-area">
+        <!-- Left box -->
+        <div
+          class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
+          style="background-color: #103cbe"
+        >
+          <div class="feature-image mb-3">
+            <img
+              src="{{ user_image }}"
+              alt="User Image"
+              class="img-fluid"
+              alt=""
+              style="width: 250px"
+            />
+          </div>
+          <p
+            class="text-white fs-2"
+            style="
+              font-family: 'Courier New', Courier, monospace;
+              font-weight: 700;
+            "
+          >
+            Be Honest
+          </p>
+          <small
+            class="text-white text-wrap text-center"
+            style="width: 17rem; font-family: 'Courier New', Courier, monospace"
+            >Please declare the following parameters accurately.</small
+          >
+        </div>
+        <!-- Right box -->
+        <form action="{{ url_for('predict')}}" method="POST" class="col-md-6">
+          <div>
+            <div class="row align-items-center">
+              <div class="header-text mb-4">
+                <h3>Welcome to Heart Disease Support System</h3>
+                <p>Enter your clinical metrics</p>
+              </div>
+              <!-- BMI -->
+              <div class="input-group mb-1">
+                <!-- <label for="bmi"></label>/label> -->
+                <input
+                  name="bmi"
+                  type="text"
+                  class="form-control form-control-lg bg-light fs-5 mb-3"
+                  placeholder="BMI"
+                  name="physicalhealth"
+                />
+              </div>
+              <!-- Smoking -->
+              <div class="input-group mb-1">
+                <!-- <input
+                  name="smoking"
+                  type="text"
+                  class="form-control form-control-lg bg-light fs-6"
+                  placeholder="Smoking (Yes : 1, No : 0)"
+                /> -->
+                <select
+                  name="smoking"
+                  class="form-select form-select-lg mb-3"
+                  aria-label=".form-select-lg example"
+                >
+                  <option selected="">Smoking</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+              <!-- Alcohol Drinking -->
+              <div class="input-group mb-1">
+                <select
+                  name="alcoholdrinking"
+                  class="form-select form-select-lg mb-3"
+                  aria-label=".form-select-lg example"
+                >
+                  <option selected="">Alcohol Drinking</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+              <!-- Stroke -->
+              <div class="input-group mb-1">
+                <select
+                  name="stroke"
+                  class="form-select form-select-lg mb-3"
+                  aria-label=".form-select-lg example"
+                >
+                  <option selected="">Stroke</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+              <!-- Physical Health -->
+              <div class="input-group mb-1">
+                <input
+                  name="physicalhealth"
+                  type="text"
+                  class="form-control form-control-lg bg-light fs-5 mb-3"
+                  placeholder="Physical Health"
+                  pattern="^(0|[1-9]|[12]\d|30)$"
+                  title="Please enter a number between 0 and 30"
+                />
+              </div>
+              <!-- Mental Health -->
+              <div class="input-group mb-1">
+                <input
+                  name="mentalhealth"
+                  type="text"
+                  class="form-control form-control-lg bg-light fs-5 mb-3"
+                  placeholder="Mental Health "
+                  pattern="^(0|[1-9]|[12]\d|30)$"
+                  title="Please enter a number between 0 and 30"
+                />
+              </div>
+              <!-- Diff Walking -->
+              <div class="input-group mb-1">
+                <select
+                  name="diffwalking"
+                  class="form-select form-select-lg mb-3"
+                  aria-label=".form-select-lg example"
+                >
+                  <option selected="">Diff Walking</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+              <!-- Sex  -->
+              <div class="input-group mb-1">
+                <select
+                  name="sex"
+                  class="form-select form-select-lg mb-3"
+                  aria-label=".form-select-lg example"
+                >
+                  <option selected="">Sex</option>
+                  <option value="1">Male</option>
+                  <option value="0">Female</option>
+                </select>
+              </div>
+              <!-- Age Category -->
+              <div class="input-group mb-1">
+                <select
+                  name="age"
+                  class="form-select form-select-lg mb-3"
+                  aria-label=".form-select-lg example"
+                >
+                  <option selected="">Age</option>
+                  <option value="0">18-24</option>
+                  <option value="1">25-29</option>
+                  <option value="2">30-34</option>
+                  <option value="3">35-39</option>
+                  <option value="4">40-44</option>
+                  <option value="5">45-49</option>
+                  <option value="6">50-54</option>
+                  <option value="7">55-59</option>
+                  <option value="8">60-64</option>
+                  <option value="9">65-69</option>
+                  <option value="10">70-74</option>
+                  <option value="11">75-79</option>
+                  <option value="12">80 or older</option>
+                </select>
+              </div>
+              <!-- Race -->
+              <div class="input-group mb-1">
+                <select
+                  name="race"
+                  class="form-select form-select-lg mb-3"
+                  aria-label=".form-select-lg example"
+                >
+                  <option selected="">Race</option>
+                  <option value="0">American Indian/Alaskan Native</option>
+                  <option value="1">Asian</option>
+                  <option value="2">Black</option>
+                  <option value="3">Hispanic</option>
+                  <option value="4">Other</option>
+                  <option value="5">White</option>
+                </select>
+              </div>
+              <!-- Diabetic -->
+              <div class="input-group mb-1">
+                <select
+                  name="diabetic"
+                  class="form-select form-select-lg mb-3"
+                  aria-label=".form-select-lg example"
+                >
+                  <option selected="">Diabetic</option>
+                  <option value="0">No</option>
+                  <option value="1">No, borderline diabetes</option>
+                  <option value="2">Yes</option>
+                  <option value="3">Yes (during pregnancy)</option>
+                </select>
+              </div>
+              <!-- Physical Activity -->
+              <div class="input-group mb-1">
+                <select
+                  name="physicalactivity"
+                  class="form-select form-select-lg mb-3"
+                  aria-label=".form-select-lg example"
+                >
+                  <option selected="">Physical Activity</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+              <!-- Gen Health -->
+              <div class="input-group mb-1">
+                <select
+                  name="genhealth"
+                  class="form-select form-select-lg mb-3"
+                  aria-label=".form-select-lg example"
+                >
+                  <option selected="">Gen Health</option>
+                  <option value="0">Excellent</option>
+                  <option value="1">Fair</option>
+                  <option value="2">Good</option>
+                  <option value="3">Poor</option>
+                  <option value="4">Very Good</option>
+                </select>
+              </div>
+              <!-- Sleep time -->
+              <div class="input-group mb-1">
+                <input
+                  name="sleeptime"
+                  type="text"
+                  class="form-control form-control-lg bg-light fs-5 mb-3"
+                  placeholder="Sleep Time"
+                  pattern="^(0|[1-9]|[12]\d|24)$"
+                  title="Please enter a number between 1 and 24"
+                />
+                <!-- <select
+                  name="sleeptime"
+                  class="form-select form-select-lg mb-3"
+                  aria-label=".form-select-lg example"
+                >
+                  <option selected="">Sleep Time</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                </select> -->
+              </div>
+              <!-- Asthma -->
+              <div class="input-group mb-1">
+                <!-- <input
+                  name="asthma"
+                  type="text"
+                  class="form-control form-control-lg bg-light fs-6"
+                  placeholder="Asthma (Yes : 1, No : 0)"
+                /> -->
+                <!-- <label for="asthma">asthma</label>    -->
+                <select
+                  name="asthma"
+                  class="form-select form-select-lg mb-3"
+                  aria-label=".form-select-lg example"
+                >
+                  <option selected="">Asthma</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+
+              <!-- Kidney Disease -->
+              <div class="input-group mb-1">
+                <select
+                  name="kidneydisease"
+                  class="form-select form-select-lg mb-3"
+                  aria-label=".form-select-lg example"
+                >
+                  <option selected="">Kidney Disease</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+
+              <!-- Skin Cancer -->
+              <div class="input-group mb-1">
+                <select
+                  name="skincancer"
+                  class="form-select form-select-lg mb-3"
+                  aria-label=".form-select-lg example"
+                >
+                  <option selected="">Skin Cancer</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <button
+                  onclick="displayPrediction('{{ prediction }}')"
+                  class="btn btn-lg btn-primary w-100 fs-6"
+                  type="submit"
+                  value="Predict"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+    //  function displayPrediction(prediction) {
+    //    Swal.fire({
+    //      title: prediction,
+    //      text: "Modal with a custom image.",
+    //      imageUrl: "https://unsplash.it/400/200",
+    //      imageWidth: 400,
+    //      imageHeight: 200,
+    //      imageAlt: "Custom image",
+    //    });
+    //  }
+    //  function displayPrediction() {
+    //    fetch("/predict")
+    //      .then((response) => response.json())
+    //      .then((data) => {
+    //        Swal.fire({
+    //          title: data.prediction,
+    //          text: "Modal with a custom image.",
+    //          imageUrl: "https://unsplash.it/400/200",
+    //          imageWidth: 400,
+    //          imageHeight: 200,
+    //          imageAlt: "Custom image",
+    //        });
+    //      });
+    //  }
+  </script>
+</html>
