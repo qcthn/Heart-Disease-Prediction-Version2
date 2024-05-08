@@ -14,7 +14,7 @@ Repository này chứa một Hệ thống Hỗ trợ Quyết định cho dự đ
 
 ## Tập Dữ Liệu
 
-Tập dữ liệu sử dụng trong dự án này có thể tìm thấy tại: [link_to_dataset]([link_to_dataset](https://www.kaggle.com/datasets/abubakarsiddiquemahi/heart-disease-dataset/data))
+Tập dữ liệu sử dụng trong dự án này có thể tìm thấy tại: https://www.kaggle.com/datasets/abubakarsiddiquemahi/heart-disease-dataset/data
 
 ## Dữ liệu
 
