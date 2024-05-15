@@ -53,13 +53,13 @@ pip install -r requirements.txt
 
 Các mô hình học máy sau được huấn luyện và đánh giá cho việc phân loại bệnh tim:
 
-- Hồi quy Logistic
-- Bộ phân loại cây quyết định
-- Bộ phân loại XGBoost
-- Bộ phân loại AdaBoost
-- Bộ phân loại K Nearest Neighbour
-- Bộ phân loại Máy vector hỗ trợ
-- Bộ phân loại Rừng ngẫu nhiên
+- Logistic regression
+- Decision tree classifier
+- XGBoost classifier
+- AdaBoost classifier
+- K Nearest Neighbor classifier
+- Support vector machine classifier
+- Random Forest classifier
 
 Độ chính xác và hiệu suất của mỗi mô hình được đánh giá bằng các chỉ số như điểm chính xác, ma trận nhầm lẫn, độ chính xác, độ nhớ, và F1-score.
 
